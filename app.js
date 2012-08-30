@@ -69,8 +69,8 @@ app.get('/callback', function(req, res){
 instagram.subscriptions.subscribe({ object: 'tag', object_id: 'jayistesting' });
 
 
-app.listen(80);
-//app.listen(3000);
+//app.listen(80);
+app.listen(3001);
 
 
 
