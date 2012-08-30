@@ -32,7 +32,6 @@ app.get('/index', function(req, res){
 });
 
 app.get('/callback', function(req, res){
-
 	instagram.subscriptions.handshake(req, res);
 
 	// res.render('callback', {
