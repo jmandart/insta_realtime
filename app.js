@@ -38,10 +38,12 @@ app.get('/callback', function(req, res){
 
 app.post('/callback', function(req, res){
 	console.log('BOOM');
-	console.log('res', res.body);
+	console.log('req', req.body);
 
-	var handshake =  Instagram.subscriptions.handshake(req, res);
-	console.log('handshake', handshake);
+
+
+	// var handshake =  Instagram.subscriptions.handshake(req, res);
+	// console.log('handshake', handshake);
 
 	// res.render('callback', {
 	// 	title: 'REAL TIME - CALLBACK'
