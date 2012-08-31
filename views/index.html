@@ -18,7 +18,7 @@
                     <img src="'+ data.images.low_resolution.url +'"/>\
                     <div class="instaInfos">\
                         <div class="postedBy"><span>Posted by:</span>' + data.user.full_name + '</div>
-                        <div class="likes ' + if(el.likes.count > 0 ){ + 'liked' + } +'">' + data.likes.count + '</div>\
+                        <div class="likes ' + if(data.likes.count > 0 ){ + 'liked' + } +'">' + data.likes.count + '</div>\
                     </div>\
                     </li>';
             //socket.emit('my other event', { my: 'data' });
