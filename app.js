@@ -1,7 +1,7 @@
 var express = require('express'),
 	app = express(),
 	engines = require('consolidate'),
-	Instagram = require('Instagram-node-lib');
+	Instagram = require('instagram-node-lib');
 
 //Set Instagram
 Instagram.set('client_id', 'a1cf6651ba4743498540dbd8c4027f9e');
