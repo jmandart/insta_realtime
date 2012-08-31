@@ -44,7 +44,7 @@ app.get('/index', function(req, res){
 
 	var booms = ['ta mere', 'sa marche'];
 
-	bar.forEach(function(boom){
+	booms.forEach(function(boom){
 
 
 	res.render('index', {
