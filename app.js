@@ -1,7 +1,8 @@
 var express = require('express'),
 	app = express(),
 	engines = require('consolidate'),
-	Instagram = require('instagram-node-lib');
+	Instagram = require('instagram-node-lib'),
+	qs = require('querystring');
 
 //Set Instagram
 Instagram.set('client_id', 'a1cf6651ba4743498540dbd8c4027f9e');
@@ -38,8 +39,21 @@ app.get('/callback', function(req, res){
 
 app.post('/callback', function(req, res){
 	console.log('BOOM');
-	console.log('req', req);
+	//console.log('res', res);
 
+	var body = '';
+
+    req.on('data', function (data) {
+        body += data;
+    });
+
+    req.on('end', function () {
+
+        var POST = qs.parse(body);
+        // use POST
+        console.log('POST', POST);
+
+    });
 
 
 	// var handshake =  Instagram.subscriptions.handshake(req, res);
