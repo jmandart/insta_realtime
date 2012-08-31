@@ -73,9 +73,9 @@ var token = instagram.oauth.ask_for_access_token({
 
 console.log('token', token);
 
-// response.render('oauth', {
-// 		title: 'REAL TIME'
-// 	});
+response.render('index', {
+		title: 'REAL TIME'
+	});
   // return null;
 });
 
