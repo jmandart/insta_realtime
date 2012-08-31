@@ -38,7 +38,7 @@ app.get('/callback', function(req, res){
 });
 
 app.post('/callback', function(req, res){
-
+	console.log('BOOM');
 	var body = '';
 
     req.on('data', function (data) {
@@ -53,7 +53,7 @@ app.post('/callback', function(req, res){
 
     });
 
-    return null;
+    // return null;
 });
 
 app.get('/index', function(request, response){
