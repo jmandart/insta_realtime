@@ -19,37 +19,6 @@ app.engine('html', engines.underscore);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
-app.get('/', function(request, response){
-
-	instagram.tags.info({
-	  name: 'jayistesting',
-	  complete: function(data){
-	    console.log(data);
-	  }
-	});
-  // instagram.oauth.ask_for_access_token({
-  //   request: request,
-  //   response: response,
-  //   redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
-  //   complete: function(params, response){
-  //     // params['access_token']
-  //     // params['user']
-  //     response.writeHead(200, {'Content-Type': 'text/plain'});
-  //     // or some other response ended with
-  //     response.end();
-  //   },
-  //   error: function(errorMessage, errorObject, caller, response){
-  //     // errorMessage is the raised error message
-  //     // errorObject is either the object that caused the issue, or the nearest neighbor
-  //     // caller is the method in which the error occurred
-  //     response.writeHead(406, {'Content-Type': 'text/plain'});
-  //     // or some other response ended with
-  //     response.end();
-  //   }
-  // });
-  // return null;
-});
-
 app.get('/index', function(req, res){
 
 	res.render('index', {
@@ -65,5 +34,32 @@ app.get('/callback', function(req, res){
 	// 	title: 'REAL TIME - CALLBACK'
 	// });
 });
+
+app.get('/', function(request, response){
+
+  instagram.oauth.ask_for_access_token({
+    request: request,
+    response: response,
+    redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
+    complete: function(params, response){
+      // params['access_token']
+      // params['user']
+      response.writeHead(200, {'Content-Type': 'text/plain'});
+      // or some other response ended with
+      response.end();
+    },
+    error: function(errorMessage, errorObject, caller, response){
+      // errorMessage is the raised error message
+      // errorObject is either the object that caused the issue, or the nearest neighbor
+      // caller is the method in which the error occurred
+      response.writeHead(406, {'Content-Type': 'text/plain'});
+      // or some other response ended with
+      response.end();
+    }
+  });
+  return null;
+});
+
+
 
 app.listen(3001);
