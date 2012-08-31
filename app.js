@@ -58,9 +58,7 @@ app.get('/index', function(req, res){
 });
 
 app.get('/callback', function(req, res){
-	// Allow Cross Domain Request from anywhere...
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
 
 	instagram.subscriptions.handshake(req, res);
 
