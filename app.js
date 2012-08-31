@@ -57,6 +57,9 @@ instagram.oauth.ask_for_access_token({
       // params['user']
 
       response.writeHead(200, {'Content-Type': 'text/plain'});
+      response.render('oauth', {
+		title: 'REAL TIME'
+		});
       // or some other response ended with
       response.end();
     },
@@ -71,9 +74,7 @@ instagram.oauth.ask_for_access_token({
     }
   });
 
-response.render('oauth', {
-		title: 'REAL TIME'
-	});
+
   // return null;
 });
 
