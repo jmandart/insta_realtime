@@ -13,13 +13,14 @@
           var socket = io.connect('http://staging1.pirata.co.uk:3001/');
           socket.on('add_image', function (data) {
             console.log(data);
-            var node = '<li>\
+            var node = 
+            '<li>\
                     <img src="'+ data.images.low_resolution.url +'"/>\
                     <div class="instaInfos">\
                         <div class="postedBy"><span>Posted by:</span>' + data.user.full_name + '</div>
                         <div class="likes ' + if(el.likes.count > 0 ){ + 'liked' + } +'">' + data.likes.count + '</div>\
                     </div>\
-            </li>';
+                    </li>';
             //socket.emit('my other event', { my: 'data' });
             $('#instaImages').prepend(node);
           });

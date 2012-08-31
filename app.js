@@ -34,9 +34,9 @@ app.get('/index', function(req, res){
 	      // data is a javascript object/array/null matching that shipped Instagram
 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
 
-	     _.forEach(data, function(el){
-	     	images.push(el);
-	     });
+	     // _.forEach(data, function(el){
+	     // 	images.push(el);
+	     // });
 
 	      	
 	    res.render('index', {
