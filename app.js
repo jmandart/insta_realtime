@@ -42,10 +42,18 @@ app.get('/index', function(req, res){
 	    } 
 	});
 
+	var booms = ['ta mere', 'sa marche'];
+
+	bar.forEach(function(boom){
+
+
 	res.render('index', {
 		title: 'REAL TIME',
-		layout: 'layout.html'
+		boom: boom
 	});
+
+	})
+
 });
 
 app.get('/callback', function(req, res){
