@@ -4,7 +4,7 @@ var express = require('express'),
 	engines = require('consolidate'),
 	Instagram = require('instagram-node-lib'),
 	qs = require('querystring'),
-	io = require('socket.io').listen(app);
+	io = require('socket.io').listen(server);
 
 //Set Instagram
 Instagram.set('client_id', 'a1cf6651ba4743498540dbd8c4027f9e');
