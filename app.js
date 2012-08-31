@@ -20,7 +20,8 @@ app.engine('html', engines.underscore);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
-app.set('views options', {layout: 'layout.html'});
+//app.set('views options', {layout: 'layout.html'});
+app.locals._layoutFile = 'views/layout.htmls';
 
 app.get('/index', function(req, res){
 
