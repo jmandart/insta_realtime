@@ -41,16 +41,20 @@ var url = instagram.oauth.authorization_url({
   scope: 'comments likes' // use a space when specifying a scope; it will be encoded into a plus
 });
 
+res.render('oauth', {
+		title: 'REAL TIME'
+	});
+
 instagram.oauth.ask_for_access_token({
     request: request,
     response: response,
-    redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
+    //redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
     complete: function(params, response){
 
     	console.log('C: params', params);
 
-      // params['access_token']
-      // params['user']
+      params['access_token']
+      params['user']
       response.writeHead(200, {'Content-Type': 'text/plain'});
       // or some other response ended with
       response.end();
