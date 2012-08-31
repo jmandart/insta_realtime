@@ -43,7 +43,7 @@ var url = instagram.oauth.authorization_url({
 
 
 
-instagram.oauth.ask_for_access_token({
+var token = instagram.oauth.ask_for_access_token({
     request: request,
     response: response,
     url: url,
@@ -57,9 +57,6 @@ instagram.oauth.ask_for_access_token({
       // params['user']
 
       response.writeHead(200, {'Content-Type': 'text/plain'});
-      response.render('oauth', {
-		title: 'REAL TIME'
-		});
       // or some other response ended with
       response.end();
     },
@@ -74,7 +71,11 @@ instagram.oauth.ask_for_access_token({
     }
   });
 
+console.log('token', token);
 
+response.render('oauth', {
+		title: 'REAL TIME'
+	});
   // return null;
 });
 
