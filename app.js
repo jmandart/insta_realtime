@@ -35,29 +35,29 @@ app.get('/callback', function(req, res){
 	// });
 });
 
-// instagram.oauth.ask_for_access_token({
-//     request: request,
-//     response: response,
-//     redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
-//     complete: function(params, response){
+instagram.oauth.ask_for_access_token({
+    request: request,
+    response: response,
+    redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
+    complete: function(params, response){
 
-//     	console.log('C: params', params);
+    	console.log('C: params', params);
 
-//       // params['access_token']
-//       // params['user']
-//       response.writeHead(200, {'Content-Type': 'text/plain'});
-//       // or some other response ended with
-//       response.end();
-//     },
-//     error: function(errorMessage, errorObject, caller, response){
-//       // errorMessage is the raised error message
-//       // errorObject is either the object that caused the issue, or the nearest neighbor
-//       // caller is the method in which the error occurred
-//       response.writeHead(406, {'Content-Type': 'text/plain'});
-//       // or some other response ended with
-//       response.end();
-//     }
-//   });
+      // params['access_token']
+      // params['user']
+      response.writeHead(200, {'Content-Type': 'text/plain'});
+      // or some other response ended with
+      response.end();
+    },
+    error: function(errorMessage, errorObject, caller, response){
+      // errorMessage is the raised error message
+      // errorObject is either the object that caused the issue, or the nearest neighbor
+      // caller is the method in which the error occurred
+      response.writeHead(406, {'Content-Type': 'text/plain'});
+      // or some other response ended with
+      response.end();
+    }
+  });
 
 // app.get('/oauth', function(request, response){
 
