@@ -19,12 +19,12 @@ app.engine('html', engines.underscore);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
-app.get('/index', function(req, res){
+// app.get('/index', function(req, res){
 
-	res.render('index', {
-		title: 'REAL TIME'
-	});
-});
+// 	res.render('index', {
+// 		title: 'REAL TIME'
+// 	});
+// });
 
 app.get('/callback', function(req, res){
 
@@ -35,7 +35,7 @@ app.get('/callback', function(req, res){
 	// });
 });
 
-app.get('/oauth', function(request, response){
+app.get('/index', function(request, response){
 
 var url = instagram.oauth.authorization_url({
   scope: 'comments likes' // use a space when specifying a scope; it will be encoded into a plus
@@ -73,9 +73,9 @@ var token = instagram.oauth.ask_for_access_token({
 
 console.log('token', token);
 
-response.render('oauth', {
-		title: 'REAL TIME'
-	});
+// response.render('oauth', {
+// 		title: 'REAL TIME'
+// 	});
   // return null;
 });
 
