@@ -23,6 +23,8 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use("/css", express.static(__dirname + '/css'));
 
+var images = [];
+
 
 app.get('/index', function(req, res){
 
@@ -35,6 +37,11 @@ app.get('/index', function(req, res){
 	      // console.log('______________________________________________');
 	      // console.log('______________________________________________');
 	      console.log('data', data.length);
+
+	     forEach(data, function(el){
+	     	console.log('______________________________________________');
+	     	console.log(el);
+	     });
 
 	      	
 	    res.render('index', {
@@ -53,10 +60,12 @@ app.get('/index', function(req, res){
 
 io.sockets.on('connection', function (socket) {
   socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
+  // socket.on('my other event', function (data) {
+  //   console.log(data);
+  // });
 });
+
+
 
 
 app.get('/callback', function(req, res){
