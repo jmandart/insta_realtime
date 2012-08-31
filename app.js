@@ -47,7 +47,7 @@ instagram.oauth.ask_for_access_token({
     request: request,
     response: response,
     url: url,
-    //redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
+    redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
     complete: function(params, response){
 
     console.log('C: params', params);
