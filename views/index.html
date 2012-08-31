@@ -13,16 +13,15 @@
             <div id="wrapperInner">
                 <h1>Jay is Instagraming</h1>
                 <ul id="instaImages">
-               <!--  <?php foreach($media['data'] as $value):?>
+                <% _.each(data function(el){ %>
                 <li>
-                    <img src="<?php echo $value['images']['low_resolution']['url']; ?>"/>
+                    <img src="<%= el.images.low_resolution %>"/>
                     <div class="instaInfos">
-                        <div class="postedBy"><span>Posted by:</span> <? echo $value['user']['full_name']; ?></div>
-                        <div class="likes <?php echo($value['likes']['count'] > 0)?'liked':'';?>"><? echo $value['likes']['count'] ?></div>
+                        <div class="postedBy"><span>Posted by:</span> <%= el.user.full_name %></div>
+                        <div class="likes <% if(el.likes.count > 0 ){%>liked<% } %>"><%= el.likes.count %></div>
                     </div>    
-
                 </li>
-                <?php endforeach;?> -->
+                <% }); %>
                 </ul>
             </div>
         </div>
