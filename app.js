@@ -21,18 +21,21 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
 //app.set('views options', {layout: 'layout.html'});
-app.locals._layoutFile = 'views/layout.htmls';
 
+app.locals._layoutFile = 'views/layout.html';
+console.log(apps.locals._layoutFile);
 app.get('/index', function(req, res){
 
 	var images = Instagram.tags.recent({ name: 'jayistesting',
 		complete: function(data, pagination){
 	      // data is a javascript object/array/null matching that shipped Instagram
 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
-	      console.log('pagination', pagination);
-	      console.log('______________________________________________');
-	      console.log('______________________________________________');
-	      console.log('data', data);
+
+	      
+	      // console.log('pagination', pagination);
+	      // console.log('______________________________________________');
+	      // console.log('______________________________________________');
+	      // console.log('data', data);
 	    },
 	  	error: function(errorMessage, errorObject, caller){
 	      // errorMessage is the raised error message
