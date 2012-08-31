@@ -23,7 +23,7 @@ app.set('views', __dirname + '/views');
 //app.set('views options', {layout: 'layout.html'});
 
 app.locals._layoutFile = 'views/layout.html';
-console.log(apps.locals._layoutFile);
+console.log(app.locals._layoutFile);
 app.get('/index', function(req, res){
 
 	var images = Instagram.tags.recent({ name: 'jayistesting',
@@ -31,7 +31,7 @@ app.get('/index', function(req, res){
 	      // data is a javascript object/array/null matching that shipped Instagram
 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
 
-	      
+
 	      // console.log('pagination', pagination);
 	      // console.log('______________________________________________');
 	      // console.log('______________________________________________');
