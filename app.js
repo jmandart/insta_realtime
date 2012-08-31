@@ -20,6 +20,8 @@ app.engine('html', engines.underscore);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
+app.set('views options', {layout: 'layout.html'});
+
 app.get('/index', function(req, res){
 
 	var images = Instagram.tags.recent({ name: 'jayistesting' });
