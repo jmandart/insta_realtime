@@ -9,6 +9,8 @@ instagram.set('client_secret', '266f4960d8234179985a4554798e2ea1');
 instagram.set('callback_url', 'http://staging1.pirata.co.uk:3001/callback');
 instagram.set('redirect_uri', 'http://staging1.pirata.co.uk:3001/index');
 
+instagram.subscriptions.subscribe({ object: 'tag', object_id: 'jayistesting' });
+
 
 // instagram.tags.info({
 //   name: 'jayistesting',
@@ -24,25 +26,25 @@ app.engine('html', engines.underscore);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
-app.get('/', function(req, res){
+app.get('/oauth', function(request, response){
   instagram.oauth.ask_for_access_token({
-    req: req,
-    res: res,
+    request: request,
+    response: response,
     redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
-    complete: function(params, res){
-      params['access_token']
-      //params['user']
-      res.writeHead(200, {'Content-Type': 'text/plain'});
+    complete: function(params, response){
+      // params['access_token']
+      // params['user']
+      response.writeHead(200, {'Content-Type': 'text/plain'});
       // or some other response ended with
-      res.end();
+      response.end();
     },
-    error: function(errorMessage, errorObject, caller, res){
+    error: function(errorMessage, errorObject, caller, response){
       // errorMessage is the raised error message
       // errorObject is either the object that caused the issue, or the nearest neighbor
       // caller is the method in which the error occurred
-      res.writeHead(406, {'Content-Type': 'text/plain'});
+      response.writeHead(406, {'Content-Type': 'text/plain'});
       // or some other response ended with
-      res.end();
+      response.end();
     }
   });
   return null;
@@ -63,7 +65,5 @@ app.get('/callback', function(req, res){
 	// 	title: 'REAL TIME - CALLBACK'
 	// });
 });
-
-instagram.subscriptions.subscribe({ object: 'tag', object_id: 'jayistesting' });
 
 app.listen(3001);
