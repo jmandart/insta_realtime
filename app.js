@@ -28,6 +28,7 @@ app.get('/oauth', function(req, res){
   instagram.oauth.ask_for_access_token({
     req: req,
     res: res,
+    redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
     complete: function(params, res){
       // params['access_token']
       // params['user']
