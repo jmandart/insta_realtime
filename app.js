@@ -19,6 +19,7 @@ app.engine('html', engines.underscore);
 // set .html as the default extension 
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
+app.use("/css", express.static(__dirname + '/css'));
 
 //app.set('views options', {layout: 'layout.html'});
 
