@@ -35,8 +35,6 @@ app.get('/callback', function(req, res){
 	// });
 });
 
-app.get('/oauth', function(request, response){
-
 instagram.oauth.ask_for_access_token({
     request: request,
     response: response,
@@ -60,6 +58,10 @@ instagram.oauth.ask_for_access_token({
       response.end();
     }
   });
+
+app.get('/oauth', function(request, response){
+
+
   return null;
 });
 
