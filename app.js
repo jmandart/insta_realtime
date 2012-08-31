@@ -57,6 +57,8 @@ instagram.oauth.ask_for_access_token({
 
       params['access_token']
       params['user']
+
+      console.log('access_token', params['access_token']);
       response.writeHead(200, {'Content-Type': 'text/plain'});
       // or some other response ended with
       response.end();
