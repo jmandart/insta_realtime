@@ -39,7 +39,6 @@ app.get('/oauth', function(request, response){
 
 var url = Instagram.oauth.authorization_url({
   scope: 'comments likes' // use a space when specifying a scope; it will be encoded into a plus
-  display: 'touch'
 });
 
 instagram.oauth.ask_for_access_token({
