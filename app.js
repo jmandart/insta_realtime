@@ -1,15 +1,15 @@
 var express = require('express'),
 	app = express(),
 	engines = require('consolidate'),
-	instagram = require('instagram-node-lib');
+	Instagram = require('Instagram-node-lib');
 
 //Set Instagram
-instagram.set('client_id', 'a1cf6651ba4743498540dbd8c4027f9e');
-instagram.set('client_secret', '266f4960d8234179985a4554798e2ea1');
-instagram.set('callback_url', 'http://staging1.pirata.co.uk:3001/callback');
-instagram.set('redirect_uri', 'http://staging1.pirata.co.uk:3001/index');
+Instagram.set('client_id', 'a1cf6651ba4743498540dbd8c4027f9e');
+Instagram.set('client_secret', '266f4960d8234179985a4554798e2ea1');
+Instagram.set('callback_url', 'http://staging1.pirata.co.uk:3001/callback');
+Instagram.set('redirect_uri', 'http://staging1.pirata.co.uk:3001/index');
 
-instagram.subscriptions.subscribe({ object: 'tag', object_id: 'jayistesting' });
+Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'jayistesting' });
 
 
 // assign the underscore engine to .html files
@@ -28,7 +28,7 @@ app.set('views', __dirname + '/views');
 
 app.get('/callback', function(req, res){
 
-	instagram.subscriptions.handshake(req, res);
+	Instagram.subscriptions.handshake(req, res);
 
 	// res.render('callback', {
 	// 	title: 'REAL TIME - CALLBACK'
@@ -37,13 +37,13 @@ app.get('/callback', function(req, res){
 
 app.get('/index', function(request, response){
 
-var url = instagram.oauth.authorization_url({
+var url = Instagram.oauth.authorization_url({
   scope: 'comments likes' // use a space when specifying a scope; it will be encoded into a plus
 });
 
 
 
-var token = instagram.oauth.ask_for_access_token({
+var token = Instagram.oauth.ask_for_access_token({
     request: request,
     response: response,
     url: url,
