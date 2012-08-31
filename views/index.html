@@ -12,7 +12,14 @@
         <script>
           var socket = io.connect('http://staging1.pirata.co.uk:3001/');
           socket.on('add_image', function (data) {
-            console.log(data.likes);
+            console.log(data)
+            
+            $(data).each(function(pair){
+              console.log(pair.key);
+              console.log(pair.value);
+            });
+
+            //console.log(data.likes);
 
             $(data).each(function(i, d){
                 console.log(d);
