@@ -41,11 +41,11 @@ response.render('oauth', {
 		title: 'REAL TIME'
 	});
 
-// var url = instagram.oauth.authorization_url({
-//   scope: 'comments likes' // use a space when specifying a scope; it will be encoded into a plus
-// });
+var url = instagram.oauth.authorization_url({
+  scope: 'comments likes' // use a space when specifying a scope; it will be encoded into a plus
+});
 
-// console.log('url', url);
+
 
 instagram.oauth.ask_for_access_token({
     request: request,
@@ -56,15 +56,15 @@ instagram.oauth.ask_for_access_token({
     console.log('C: params', params);
     console.log('C: response', response);
 
-      params['access_token']
-      params['user']
+      // params['access_token']
+      // params['user']
 
-      console.log('access_token', params['access_token']);
       response.writeHead(200, {'Content-Type': 'text/plain'});
       // or some other response ended with
       response.end();
     },
     error: function(errorMessage, errorObject, caller, response){
+    	console.log('E: response', response);
       // errorMessage is the raised error message
       // errorObject is either the object that caused the issue, or the nearest neighbor
       // caller is the method in which the error occurred
