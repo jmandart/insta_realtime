@@ -30,26 +30,26 @@ app.get('/oauth', function(req, res){
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
-	  instagram.oauth.ask_for_access_token({
-	    request: req,
-	    response: res,
-	    complete: function(params, response){
-	      // params['access_token']
-	      // params['user']
-	      response.writeHead(200, {'Content-Type': 'text/plain'});
-	      // or some other response ended with
-	      response.end();
-	    },
-	    error: function(errorMessage, errorObject, caller, response){
-	      // errorMessage is the raised error message
-	      // errorObject is either the object that caused the issue, or the nearest neighbor
-	      // caller is the method in which the error occurred
-	      response.writeHead(406, {'Content-Type': 'text/plain'});
-	      // or some other response ended with
-	      response.end();
-	    }
-	  });
-  return null;
+	 //  instagram.oauth.ask_for_access_token({
+	 //    request: req,
+	 //    response: res,
+	 //    complete: function(params, response){
+	 //      // params['access_token']
+	 //      // params['user']
+	 //      response.writeHead(200, {'Content-Type': 'text/plain'});
+	 //      // or some other response ended with
+	 //      response.end();
+	 //    },
+	 //    error: function(errorMessage, errorObject, caller, response){
+	 //      // errorMessage is the raised error message
+	 //      // errorObject is either the object that caused the issue, or the nearest neighbor
+	 //      // caller is the method in which the error occurred
+	 //      response.writeHead(406, {'Content-Type': 'text/plain'});
+	 //      // or some other response ended with
+	 //      response.end();
+	 //    }
+	 //  });
+  // return null;
 
 });
 
