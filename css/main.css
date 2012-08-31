@@ -7,11 +7,11 @@ html, body{
 div#wrapper{
     width:1024px;
     margin: 0 auto;
-    background: #000 url('../images/instagram/instagram_bg_top.jpg') top left no-repeat;
+    background: #000 url('../css/images/instagram/instagram_bg_top.jpg') top left no-repeat;
 }
 
 div#wrapperInner{
-    background: #000 url('../images/instagram/instagram_bg_lrg_pattern.jpg') top left repeat-y;
+    background: #000 url('../css/images/instagram/instagram_bg_lrg_pattern.jpg') top left repeat-y;
 }
 
 div#wrapperInner h1{
@@ -29,7 +29,7 @@ div#wrapperInner h1{
     position: relative;
     width: 349px;
     height: 411px;
-    background: transparent url(../images/instagram/instagram_polaroid_frame.jpg) top left no-repeat;
+    background: transparent url(../css/images/instagram/instagram_polaroid_frame.jpg) top left no-repeat;
     float: left;
     margin:0 75px 45px 75px;
 }
@@ -63,7 +63,7 @@ div#wrapperInner h1{
 .instaInfos .likes{
     color:#000;
     height:20px;
-    background: transparent url('../images/instagram/instagram_likes_icon.png') 0 -21px no-repeat;
+    background: transparent url('../css/images/instagram/instagram_likes_icon.png') 0 -21px no-repeat;
     padding-left:25px;
     font-size:17px;
     line-height:24px;
