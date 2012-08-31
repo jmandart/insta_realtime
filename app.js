@@ -25,14 +25,14 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
 app.get('/oauth', function(req, res){
-	
+
 	// Allow Cross Domain Request from anywhere...
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
 	  instagram.oauth.ask_for_access_token({
-	    request: request,
-	    response: response,
+	    request: req,
+	    response: res,
 	    complete: function(params, response){
 	      // params['access_token']
 	      // params['user']
