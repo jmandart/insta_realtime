@@ -38,7 +38,7 @@ app.get('/callback', function(req, res){
 
 app.post('/callback', function(req, res){
 	console.log('BOOM');
-	console.log('req', req.body);
+	console.log('req', req);
 
 
 
