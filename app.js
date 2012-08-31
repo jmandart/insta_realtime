@@ -73,7 +73,7 @@ instagram.oauth.ask_for_access_token({
       response.end();
     }
   });
-  return null;
+  // return null;
 });
 
 app.listen(3001);
