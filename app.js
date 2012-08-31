@@ -20,12 +20,15 @@ app.engine('html', engines.underscore);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
-// app.get('/index', function(req, res){
+app.get('/index', function(req, res){
 
-// 	res.render('index', {
-// 		title: 'REAL TIME'
-// 	});
-// });
+	var images = Instagram.tags.recent({ name: 'jayistesting' });
+	console.log('images', images);
+
+	res.render('index', {
+		title: 'REAL TIME'
+	});
+});
 
 app.get('/callback', function(req, res){
 
@@ -56,48 +59,48 @@ app.post('/callback', function(req, res){
     // return null;
 });
 
-app.get('/index', function(request, response){
+// app.get('/index', function(request, response){
 
-var url = Instagram.oauth.authorization_url({
-  scope: 'comments likes' // use a space when specifying a scope; it will be encoded into a plus
-});
+// var url = Instagram.oauth.authorization_url({
+//   scope: 'comments likes' // use a space when specifying a scope; it will be encoded into a plus
+// });
 
 
 
-var token = Instagram.oauth.ask_for_access_token({
-    request: request,
-    response: response,
-    url: url,
-    redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
-    complete: function(params, response){
+// var token = Instagram.oauth.ask_for_access_token({
+//     request: request,
+//     response: response,
+//     url: url,
+//     redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
+//     complete: function(params, response){
 
-    console.log('C: params', params);
-    console.log('C: response', response);
+//     console.log('C: params', params);
+//     console.log('C: response', response);
 
-      // params['access_token']
-      // params['user']
+//       // params['access_token']
+//       // params['user']
 
-      response.writeHead(200, {'Content-Type': 'text/plain'});
-      // or some other response ended with
-      response.end();
-    },
-    error: function(errorMessage, errorObject, caller, response){
-    	console.log('E: response', response);
-      // errorMessage is the raised error message
-      // errorObject is either the object that caused the issue, or the nearest neighbor
-      // caller is the method in which the error occurred
-      response.writeHead(406, {'Content-Type': 'text/plain'});
-      // or some other response ended with
-      response.end();
-    }
-  });
+//       response.writeHead(200, {'Content-Type': 'text/plain'});
+//       // or some other response ended with
+//       response.end();
+//     },
+//     error: function(errorMessage, errorObject, caller, response){
+//     	console.log('E: response', response);
+//       // errorMessage is the raised error message
+//       // errorObject is either the object that caused the issue, or the nearest neighbor
+//       // caller is the method in which the error occurred
+//       response.writeHead(406, {'Content-Type': 'text/plain'});
+//       // or some other response ended with
+//       response.end();
+//     }
+//   });
 
-console.log('token', token);
+// console.log('token', token);
 
-response.render('index', {
-		title: 'REAL TIME'
-	});
-  // return null;
-});
+// response.render('index', {
+// 		title: 'REAL TIME'
+// 	});
+//   // return null;
+// });
 
 app.listen(3001);
