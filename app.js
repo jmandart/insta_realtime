@@ -14,23 +14,13 @@ Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'jayistesting',  }
 
 
 // assign the underscore engine to .html files
-app.set('views', __dirname + '/views');
 app.engine('html', engines.underscore);
-app.locals._layoutFile = '/layout.html';
 
 // set .html as the default extension 
 app.set('view engine', 'html');
-
+app.set('views', __dirname + '/views');
 
 //app.set('views options', {layout: 'layout.html'});
-
-
-
-
-console.log(app.locals._layoutFile);
-
-
-
 
 app.get('/index', function(req, res){
 
