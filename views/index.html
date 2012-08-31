@@ -16,25 +16,29 @@
 
             $(data).each(function(i, d){
                 console.log(d);
+
+                var liked = '';
+                if(d.likes.count > 0 ){
+                    liked = ' liked';
+                }
+
+                var node = 
+                '<li>\
+                        <img src="'+ d.images.low_resolution.url +'"/>\
+                        <div class="instaInfos">\
+                            <div class="postedBy"><span>Posted by:</span>' + d.user.full_name + '</div>\
+                            <div class="likes' + liked +'">' + d.likes.count + '</div>\
+                        </div>\
+                        </li>';
+                //socket.emit('my other event', { my: 'data' });
+                $('#instaImages').prepend(node);
             });
+
             //console.log(data[0].likes);
-            console.log(data);
+            console.log($(data).get('likes'));
 
             //var data = data[0];
-            var liked = '';
-            if(data.likes.count > 0 ){
-                liked = ' liked';
-            }
-            var node = 
-            '<li>\
-                    <img src="'+ data.images.low_resolution.url +'"/>\
-                    <div class="instaInfos">\
-                        <div class="postedBy"><span>Posted by:</span>' + data.user.full_name + '</div>\
-                        <div class="likes' + liked +'">' + data.likes.count + '</div>\
-                    </div>\
-                    </li>';
-            //socket.emit('my other event', { my: 'data' });
-            $('#instaImages').prepend(node);
+            
           });
         </script>
     </head>
