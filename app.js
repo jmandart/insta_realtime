@@ -19,30 +19,20 @@ app.engine('html', engines.underscore);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
-// app.get('/index', function(req, res){
-
-// 	res.render('index', {
-// 		title: 'REAL TIME'
-// 	});
-// });
 
 app.get('/callback', function(req, res){
 
 	var handshake =  Instagram.subscriptions.handshake(req, res);
-	console.log('handshake', handshake);
-
-	// res.render('callback', {
-	// 	title: 'REAL TIME - CALLBACK'
-	// });
 });
 
 app.post('/callback', function(req, res){
-	
-	console.log('BOOM');
 
-	// res.render('callback', {
-	// 	title: 'REAL TIME - CALLBACK'
-	// });
+	console.log('BOOM');
+	console.log('res', res);
+
+	res.render('callback', {
+		title: 'REAL TIME - CALLBACK'
+	});
 });
 
 app.get('/index', function(request, response){
