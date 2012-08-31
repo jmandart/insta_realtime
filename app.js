@@ -4,7 +4,8 @@ var express = require('express'),
 	engines = require('consolidate'),
 	Instagram = require('instagram-node-lib'),
 	qs = require('querystring'),
-	io = require('socket.io').listen(server);
+	io = require('socket.io').listen(server),
+	_ = require('underscore');
 
 //Set Instagram
 Instagram.set('client_id', 'a1cf6651ba4743498540dbd8c4027f9e');
@@ -38,7 +39,7 @@ app.get('/index', function(req, res){
 	      // console.log('______________________________________________');
 	      console.log('data', data.length);
 
-	     forEach(data, function(el){
+	     _.forEach(data, function(el){
 	     	console.log('______________________________________________');
 	     	console.log(el);
 	     });
