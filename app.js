@@ -31,10 +31,10 @@ app.get('/index', function(req, res){
 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
 
 
-	      // console.log('pagination', pagination);
+	      console.log('pagination', pagination);
 	      // console.log('______________________________________________');
 	      // console.log('______________________________________________');
-	      // console.log('data', data);
+	      console.log('data', data.length);
 
 	      	
 	    res.render('index', {
