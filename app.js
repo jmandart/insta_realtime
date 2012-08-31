@@ -24,6 +24,35 @@ app.engine('html', engines.underscore);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
+app.get('/oauth', function(req, res){
+	
+	// Allow Cross Domain Request from anywhere...
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
+	  instagram.oauth.ask_for_access_token({
+	    request: request,
+	    response: response,
+	    complete: function(params, response){
+	      // params['access_token']
+	      // params['user']
+	      response.writeHead(200, {'Content-Type': 'text/plain'});
+	      // or some other response ended with
+	      response.end();
+	    },
+	    error: function(errorMessage, errorObject, caller, response){
+	      // errorMessage is the raised error message
+	      // errorObject is either the object that caused the issue, or the nearest neighbor
+	      // caller is the method in which the error occurred
+	      response.writeHead(406, {'Content-Type': 'text/plain'});
+	      // or some other response ended with
+	      response.end();
+	    }
+	  });
+  return null;
+
+});
+
 app.get('/index', function(req, res){
 
 	res.render('index', {
@@ -35,7 +64,7 @@ app.get('/callback', function(req, res){
 	// Allow Cross Domain Request from anywhere...
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    
+
 	instagram.subscriptions.handshake(req, res);
 
 	// res.render('callback', {
