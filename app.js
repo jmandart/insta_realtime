@@ -59,12 +59,21 @@ app.get('/index', function(req, res){
 	});
 });
 
+var mySocket;
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
+
+	mySocket = socket
+  
 });
+
+function sendNewImage() {
+	mySocket.emit('add_image', { data: 'src' });
+}
+
+// socket.emit('news', { hello: 'world' });
+//   socket.on('my other event', function (data) {
+//     console.log(data);
+//   });
 
 
 
@@ -92,7 +101,8 @@ app.post('/callback', function(req, res){
         var POST = qs.parse(body);
         // use POST
         console.log('POST', POST);
-        res.send({more: 'BOOM'});
+        //res.send({more: 'BOOM'});
+        sendNewImage();
 
     });
 
