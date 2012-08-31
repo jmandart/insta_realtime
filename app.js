@@ -26,9 +26,6 @@ app.set('views', __dirname + '/views');
 
 app.get('/oauth', function(req, res){
 
-	// Allow Cross Domain Request from anywhere...
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
 	 //  instagram.oauth.ask_for_access_token({
 	 //    request: req,
