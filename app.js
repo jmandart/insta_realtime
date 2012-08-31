@@ -30,9 +30,9 @@ app.post('/callback', function(req, res){
 	console.log('BOOM');
 	console.log('res', res);
 
-	res.render('callback', {
-		title: 'REAL TIME - CALLBACK'
-	});
+	// res.render('callback', {
+	// 	title: 'REAL TIME - CALLBACK'
+	// });
 });
 
 app.get('/index', function(request, response){
