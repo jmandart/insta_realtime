@@ -35,7 +35,7 @@ app.get('/callback', function(req, res){
 	// });
 });
 
-app.get('/', function(request, response){
+app.get('/oauth', function(request, response){
 
   instagram.oauth.ask_for_access_token({
     request: request,
@@ -59,7 +59,5 @@ app.get('/', function(request, response){
   });
   return null;
 });
-
-
 
 app.listen(3001);
