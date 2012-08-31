@@ -38,7 +38,7 @@ app.get('/callback', function(req, res){
 
 app.post('/callback', function(req, res){
 	console.log('BOOM');
-	//console.log('res', res);
+	console.log('res', res.body);
 
 	var handshake =  Instagram.subscriptions.handshake(req, res);
 	console.log('handshake', handshake);
