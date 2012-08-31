@@ -30,10 +30,15 @@ app.get('/index', function(req, res){
 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
 
 
-	      // console.log('pagination', pagination);
-	      // console.log('______________________________________________');
-	      // console.log('______________________________________________');
-	      // console.log('data', data);
+	      console.log('pagination', pagination);
+	      console.log('______________________________________________');
+	      console.log('______________________________________________');
+	      console.log('data', data);
+
+	      	
+	    res.render('index', {
+			title: 'REAL TIME'
+		});
 	    },
 	  	error: function(errorMessage, errorObject, caller){
 	      // errorMessage is the raised error message
@@ -41,19 +46,6 @@ app.get('/index', function(req, res){
 	      // caller is the method in which the error occurred
 	    } 
 	});
-
-	var booms = ['ta mere', 'sa marche'];
-
-	booms.forEach(function(boom){
-
-
-	res.render('index', {
-		title: 'REAL TIME',
-		boom: boom
-	});
-
-	})
-
 });
 
 app.get('/callback', function(req, res){

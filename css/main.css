@@ -1,0 +1,74 @@
+html, body{
+    color: #FFF;
+    background-color:#000;
+    margin:0;
+}
+
+div#wrapper{
+    width:1024px;
+    margin: 0 auto;
+    background: #000 url('../images/instagram/instagram_bg_top.jpg') top left no-repeat;
+}
+
+div#wrapperInner{
+    background: #000 url('../images/instagram/instagram_bg_lrg_pattern.jpg') top left repeat-y;
+}
+
+div#wrapperInner h1{
+    font-family: 'Satisfy', cursive;
+    font-size:50px;
+    margin-left: 20px;
+}
+
+#instaImages{
+    margin: 50px 10px 0 10px;
+    overflow: hidden;
+}
+
+#instaImages li{
+    position: relative;
+    width: 349px;
+    height: 411px;
+    background: transparent url(../images/instagram/instagram_polaroid_frame.jpg) top left no-repeat;
+    float: left;
+    margin:0 75px 45px 75px;
+}
+
+#instaImages li img{
+    display: block;
+    position: absolute;
+    top:22px;
+    left:22px;
+}
+
+.instaInfos{
+    position:absolute;
+    bottom: 0;
+    left: 23px;
+    width:306px;
+    height: 74px;
+    font-family: 'Satisfy', cursive;
+    padding:4px 0;
+}
+
+.instaInfos .postedBy{
+    font-size:15px;
+    color:#000;
+}
+
+.instaInfos .postedBy span{
+    color:#855925;
+}
+
+.instaInfos .likes{
+    color:#000;
+    height:20px;
+    background: transparent url('../images/instagram/instagram_likes_icon.png') 0 -21px no-repeat;
+    padding-left:25px;
+    font-size:17px;
+    line-height:24px;
+}
+
+.instaInfos .liked{
+    background-position: 0 0;
+}
