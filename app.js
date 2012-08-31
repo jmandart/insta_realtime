@@ -37,13 +37,15 @@ app.get('/callback', function(req, res){
 
 app.get('/oauth', function(request, response){
 
+response.render('oauth', {
+		title: 'REAL TIME'
+	});
+
 var url = instagram.oauth.authorization_url({
   scope: 'comments likes' // use a space when specifying a scope; it will be encoded into a plus
 });
 
-res.render('oauth', {
-		title: 'REAL TIME'
-	});
+console.log('url', url);
 
 instagram.oauth.ask_for_access_token({
     request: request,
