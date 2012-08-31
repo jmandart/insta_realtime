@@ -31,9 +31,9 @@ app.get('/callback', function(req, res){
 	var handshake =  Instagram.subscriptions.handshake(req, res);
 	console.log('handshake', handshake);
 
-	res.render('callback', {
-		title: 'REAL TIME - CALLBACK'
-	});
+	// res.render('callback', {
+	// 	title: 'REAL TIME - CALLBACK'
+	// });
 });
 
 app.post('/callback', function(req, res){
