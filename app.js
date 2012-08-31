@@ -28,7 +28,8 @@ app.set('views', __dirname + '/views');
 
 app.get('/callback', function(req, res){
 
-	Instagram.subscriptions.handshake(req, res);
+	var handshake =  Instagram.subscriptions.handshake(req, res);
+	console.log('handshake', handshake);
 
 	// res.render('callback', {
 	// 	title: 'REAL TIME - CALLBACK'
