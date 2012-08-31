@@ -10,7 +10,7 @@ Instagram.set('client_secret', '266f4960d8234179985a4554798e2ea1');
 Instagram.set('callback_url', 'http://staging1.pirata.co.uk:3001/callback');
 Instagram.set('redirect_uri', 'http://staging1.pirata.co.uk:3001/index');
 
-Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'jayistesting' });
+Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'jayistesting',  });
 
 
 // assign the underscore engine to .html files
@@ -38,8 +38,6 @@ app.get('/callback', function(req, res){
 });
 
 app.post('/callback', function(req, res){
-	console.log('BOOM');
-	//console.log('res', res);
 
 	var body = '';
 
@@ -55,13 +53,7 @@ app.post('/callback', function(req, res){
 
     });
 
-
-	// var handshake =  Instagram.subscriptions.handshake(req, res);
-	// console.log('handshake', handshake);
-
-	// res.render('callback', {
-	// 	title: 'REAL TIME - CALLBACK'
-	// });
+    return null;
 });
 
 app.get('/index', function(request, response){
