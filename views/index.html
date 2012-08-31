@@ -14,6 +14,7 @@
                 <h1>Jay is Instagraming</h1>
                 <ul id="instaImages">
                 <% _.each(data, function(el){ %>
+                <% console.log(el.images.low_resolution) %>
                 <li>
                     <img src="<%= el.images.low_resolution %>"/>
                     <div class="instaInfos">
