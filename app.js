@@ -24,11 +24,25 @@ app.set('views options', {layout: 'layout.html'});
 
 app.get('/index', function(req, res){
 
-	var images = Instagram.tags.recent({ name: 'jayistesting' });
-	console.log('images', images);
+	var images = Instagram.tags.recent({ name: 'jayistesting',
+		complete: function(data, pagination){
+	      // data is a javascript object/array/null matching that shipped Instagram
+	      // when available (mostly /recent), pagination is a javascript object with the pagination information
+	      console.log('pagination', pagination);
+	      console.log('______________________________________________');
+	      console.log('______________________________________________');
+	      console.log('data', data);
+	    },
+	  	error: function(errorMessage, errorObject, caller){
+	      // errorMessage is the raised error message
+	      // errorObject is either the object that caused the issue, or the nearest neighbor
+	      // caller is the method in which the error occurred
+	    } 
+	});
 
 	res.render('index', {
-		title: 'REAL TIME'
+		title: 'REAL TIME',
+		layout: false
 	});
 });
 
