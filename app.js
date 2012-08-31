@@ -41,11 +41,11 @@ response.render('oauth', {
 		title: 'REAL TIME'
 	});
 
-var url = instagram.oauth.authorization_url({
-  scope: 'comments likes' // use a space when specifying a scope; it will be encoded into a plus
-});
+// var url = instagram.oauth.authorization_url({
+//   scope: 'comments likes' // use a space when specifying a scope; it will be encoded into a plus
+// });
 
-console.log('url', url);
+// console.log('url', url);
 
 instagram.oauth.ask_for_access_token({
     request: request,
@@ -53,7 +53,8 @@ instagram.oauth.ask_for_access_token({
     //redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
     complete: function(params, response){
 
-    	console.log('C: params', params);
+    console.log('C: params', params);
+    console.log('C: response', response);
 
       params['access_token']
       params['user']
