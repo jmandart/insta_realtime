@@ -46,6 +46,7 @@ var url = instagram.oauth.authorization_url({
 instagram.oauth.ask_for_access_token({
     request: request,
     response: response,
+    url: url,
     //redirect: 'http://staging1.pirata.co.uk:3001/index', // optional
     complete: function(params, response){
 
@@ -70,9 +71,9 @@ instagram.oauth.ask_for_access_token({
     }
   });
 
-// response.render('oauth', {
-// 		title: 'REAL TIME'
-// 	});
+response.render('oauth', {
+		title: 'REAL TIME'
+	});
   // return null;
 });
 
