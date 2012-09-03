@@ -12,16 +12,13 @@
         <script>
           var socket = io.connect('http://staging1.pirata.co.uk:3001/');
           socket.on('add_image', function (data) {
-            console.log(data)
-            
-            $(data).each(function(pair){
-              console.log(pair.key);
-              console.log(pair.value);
-            });
+            console.log(data.data)
+
+            var myData = data.data;
 
             //console.log(data.likes);
 
-            $(data).each(function(i, d){
+            $(myData).each(function(i, d){
                 console.log(d);
 
                 var liked = '';
@@ -40,11 +37,6 @@
                 //socket.emit('my other event', { my: 'data' });
                 $('#instaImages').prepend(node);
             });
-
-            //console.log(data[0].likes);
-            console.log($(data).get('likes'));
-
-            //var data = data[0];
             
           });
         </script>
