@@ -13,7 +13,7 @@ Instagram.set('client_secret', '266f4960d8234179985a4554798e2ea1');
 Instagram.set('callback_url', 'http://staging1.pirata.co.uk:3001/callback');
 Instagram.set('redirect_uri', 'http://staging1.pirata.co.uk:3001/index');
 
-Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'jayistesting',  });
+//Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'jayistesting',  });
 
 
 // assign the underscore engine to .html files
@@ -117,7 +117,7 @@ app.post('/callback', function(req, res){
 
     });
 
-    req.end();
+    //req.end();
 
     // return null;
 });
