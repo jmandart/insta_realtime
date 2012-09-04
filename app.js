@@ -84,7 +84,7 @@ app.get('/callback', function(req, res){
 
 app.post('/callback', function(req, res){
 	console.log('BOOM');
-	// var body = '';
+	var body = '';
 
     req.on('data', function (data) {
         body += data;
