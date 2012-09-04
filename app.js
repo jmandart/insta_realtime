@@ -85,6 +85,20 @@ app.get('/callback', function(req, res){
 
 var q = async.queue(function (task, callback) {
     console.log('hello ' + task.name);
+    Instagram.tags.recent({ name: 'jayistesting',
+		complete: function(data, pagination){
+	      // data is a javascript object/array/null matching that shipped Instagram
+	      // when available (mostly /recent), pagination is a javascript object with the pagination information
+
+	    sendNewImage(data[0]);
+
+	    },
+	  	error: function(errorMessage, errorObject, caller){
+	      // errorMessage is the raised error message
+	      // errorObject is either the object that caused the issue, or the nearest neighbor
+	      // caller is the method in which the error occurred
+	    } 
+	});
     callback();
 }, 1);
 
@@ -105,27 +119,7 @@ app.post('/callback', function(req, res){
     });
 
     req.on('close', function () {
-    	//getNewImages();
-
-    	q.push({name: 'foo'}, function (err) {
-	    	Instagram.tags.recent({ name: 'jayistesting',
-				complete: function(data, pagination){
-			      // data is a javascript object/array/null matching that shipped Instagram
-			      // when available (mostly /recent), pagination is a javascript object with the pagination information
-
-			    sendNewImage(data[0]);
-
-			    },
-			  	error: function(errorMessage, errorObject, caller){
-			      // errorMessage is the raised error message
-			      // errorObject is either the object that caused the issue, or the nearest neighbor
-			      // caller is the method in which the error occurred
-			    } 
-			});
-    		
-		});
-		
-    	console.log('<!------- CLOSE CLOSE CLOSE CLOSE CLOSE ---->');
+    	getNewImages();
     	
     });
 
@@ -134,8 +128,19 @@ app.post('/callback', function(req, res){
     // return null;
 });
 
+var indexImage = 1; 
+function getNewsImage(){
 
+	q.push({name: 'foo'+indexImage}, function (err) {
+    		console.log('finished processing foo');
+		});
 
+	indexImage++;
+}
+
+q.drain = function() {
+    console.log('all items have been processed');
+}
 
 
 server.listen(3001);
