@@ -117,6 +117,8 @@ app.post('/callback', function(req, res){
 
     });
 
+    req.end();
+
     // return null;
 });
 
