@@ -84,41 +84,41 @@ app.get('/callback', function(req, res){
 
 app.post('/callback', function(req, res){
 	console.log('BOOM');
-	var body = '';
+	// var body = '';
 
-    req.on('data', function (data) {
-        body += data;
-    });
+ //    req.on('data', function (data) {
+ //        body += data;
+ //    });
 
-    req.on('end', function () {
+ //    req.on('end', function () {
 
-        var POST = qs.parse(body);
-        // use POST
-        console.log('POST', POST);
-        //res.send({more: 'BOOM'});
+ //        var POST = qs.parse(body);
+ //        // use POST
+ //        console.log('POST', POST);
+ //        //res.send({more: 'BOOM'});
 
-        Instagram.tags.recent({ name: 'jayistesting',
-			complete: function(data, pagination){
-		      // data is a javascript object/array/null matching that shipped Instagram
-		      // when available (mostly /recent), pagination is a javascript object with the pagination information
+ //        Instagram.tags.recent({ name: 'jayistesting',
+	// 		complete: function(data, pagination){
+	// 	      // data is a javascript object/array/null matching that shipped Instagram
+	// 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
 
-		    sendNewImage(data[0]);
+	// 	    sendNewImage(data[0]);
 
-		    },
-		  	error: function(errorMessage, errorObject, caller){
-		      // errorMessage is the raised error message
-		      // errorObject is either the object that caused the issue, or the nearest neighbor
-		      // caller is the method in which the error occurred
-		    } 
-		});
+	// 	    },
+	// 	  	error: function(errorMessage, errorObject, caller){
+	// 	      // errorMessage is the raised error message
+	// 	      // errorObject is either the object that caused the issue, or the nearest neighbor
+	// 	      // caller is the method in which the error occurred
+	// 	    } 
+	// 	});
 
-    });
+ //    });
 
-    req.on('close', function () {
-    	console.log('<!------- CLOSE CLOSE CLOSE CLOSE CLOSE ---->')
-    });
+ //    req.on('close', function () {
+ //    	console.log('<!------- CLOSE CLOSE CLOSE CLOSE CLOSE ---->')
+ //    });
 
-    res.send('0');
+ //    res.send('0');
 
     // return null;
 });
