@@ -129,7 +129,7 @@ app.post('/callback', function(req, res){
 });
 
 var indexImage = 1; 
-function getNewsImages(){
+function getNewImages(){
 
 	q.push({name: 'foo'+indexImage}, function (err) {
     		console.log('finished processing foo');
