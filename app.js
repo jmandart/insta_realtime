@@ -75,7 +75,7 @@ console.log('BOOM0');
 
 	    request.on('data', function (data) {
 
-	    	console.log(data.);
+	    	console.log(data);
 	        //body += data;
 	     //    data.body.forEach(function(notificationOjb){
 				  //   // Every notification object contains the id of the geography
