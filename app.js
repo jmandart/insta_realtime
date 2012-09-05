@@ -29,7 +29,7 @@ app.use("/css", express.static(__dirname + '/css'));
 var newImages = [];
 
 
-app.get('/index', function(req, res){
+app.get('/', function(req, res){
 
 	var images = Instagram.tags.recent({ name: 'jayistesting',
 		complete: function(data, pagination){
