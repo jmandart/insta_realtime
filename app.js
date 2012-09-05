@@ -69,14 +69,14 @@ app.post('/callback', function(request, response){
 console.log('BOOM0');
 	//setTimeout(function(){
 		//console.log('BOOM1');
-		//var body = '';
+		var body = '';
 
 		console.log(request.get('body'));
 
 	    request.on('data', function (data) {
 
-	    	console.log(data);
-	        //body += data;
+	    	//console.log(data);
+	        body += data;
 	     //    data.body.forEach(function(notificationOjb){
 				  //   // Every notification object contains the id of the geography
 				  //   // that has been updated, and the photo can be obtained from
