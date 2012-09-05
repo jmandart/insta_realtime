@@ -119,7 +119,7 @@ function sendNewImages(){
 	console.log('timer is on --------');
 	console.log('newImages.length', newImages.length);
 	console.log('--------');
-	if(newImages.length < 0){
+	if(newImages.length > 0){
 		console.log('newImages.length', newImages.length);
 		io.sockets.emit('add_image', { data: newImages[0] });
 		newImages.length = 0;
