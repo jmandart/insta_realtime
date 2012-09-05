@@ -76,7 +76,7 @@ app.post('/callback', function(req, res){
 	    });
 
 	    req.on('close', function () {
-	    	getNewImages();
+	    	//getNewImages();
 	    	
 	    });
 	    res.writeHead(200);
