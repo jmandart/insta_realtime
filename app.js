@@ -124,7 +124,7 @@ function getNewImages(){
 	console.log('BOOM2');
 	console.log('indexImage', indexImage);
 
-	sendNewImage('dede');
+	//sendNewImage('dede');
 
 	// Instagram.tags.recent({ name: 'jayistesting',
 	// 	complete: function(data, pagination){
