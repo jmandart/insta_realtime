@@ -4,7 +4,7 @@ var express = require('express'),
 	engines = require('consolidate'),
 	Instagram = require('instagram-node-lib'),
 	qs = require('querystring'),
-	//io = require('socket.io').listen(server),
+	io = require('socket.io').listen(app),
 	async = require('async'),
 	_ = require('underscore');
 
@@ -77,11 +77,11 @@ app.get('/callback', function(req, res){
 });
 
 
-var q = async.queue(function (task, callback) {
-    console.log('hello ' + task.name);
+// var q = async.queue(function (task, callback) {
+//     console.log('hello ' + task.name);
     
-    callback();
-}, 1);
+//     callback();
+// }, 1);
 
 
 
@@ -105,7 +105,7 @@ app.post('/callback', function(req, res){
     	getNewImages();
     	
     });
-
+    res.writeHead(200);
  //    res.send('0');
 
     // return null;
@@ -125,7 +125,7 @@ function getNewImages(){
 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
 
 	    //sendNewImage(data[0]);
-	    //io.sockets.emit('add_image', { data: image });
+	    io.sockets.emit('add_image', { data: image });
 	    console.log(data[0]);
 
 	    },
@@ -158,9 +158,9 @@ function getNewImages(){
 	indexImage++;
 }
 
-q.drain = function() {
-    console.log('all items have been processed');
-}
+// q.drain = function() {
+//     console.log('all items have been processed');
+// }
 
 
 server.listen(3001);
