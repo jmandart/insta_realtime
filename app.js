@@ -88,7 +88,7 @@ app.post('/callback', function(req, res){
 function getNewImages(){
 
 	console.log('BOOM2');
-	console.log('indexImage', indexImage);
+	//console.log('indexImage', indexImage);
 
 	Instagram.tags.recent({ name: 'jayistesting',
 		complete: function(data, pagination){
