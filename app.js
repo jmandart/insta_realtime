@@ -39,14 +39,6 @@ app.get('/index', function(req, res){
 				data: data
 			});
 
-			setTimeout(function(){
-				
-				setInterval(function(){
-					io.sockets.emit('photo', { img_url: 'http://distilleryimage3.s3.amazonaws.com/1c015524f77011e1b44322000a1e8c9f_6.jpg', full_name: 'Julien Mandart', likes: 0 });
-				},2000);
-
-			},5000);			
-
 	    },
 	  	error: function(errorMessage, errorObject, caller){
 	      // errorMessage is the raised error message
@@ -98,12 +90,15 @@ function getNewImages(){
 	    // when available (mostly /recent), pagination is a javascript object with the pagination information
 
 	    	//sendNewImage(data[0]);
-	   		io.sockets.emit('photo', { img_url: data[0].images.low_resolution.url, full_name: data[0].user.full_name, likes: data[0].likes.count });
+	   		//io.sockets.emit('photo', { img_url: data[0].images.low_resolution.url, full_name: data[0].user.full_name, likes: data[0].likes.count });
 	    	//console.log(data[0]);
 
-	    	console.log('data[0].images.low_resolution.url', data[0].images.low_resolution.url);
-	    	console.log('data[0].images.low_resolution.url', data[0].user.full_name);
-	    	console.log('data[0].images.low_resolution.url', data[0].likes.count);
+	    	var image = { img_url: data[0].images.low_resolution.url, full_name: data[0].user.full_name, likes: data[0].likes.count };
+	    	newImages.push(image);
+
+	    	// console.log('data[0].images.low_resolution.url', data[0].images.low_resolution.url);
+	    	// console.log('data[0].images.low_resolution.url', data[0].user.full_name);
+	    	// console.log('data[0].images.low_resolution.url', data[0].likes.count);
 
 
 	    },
@@ -115,5 +110,22 @@ function getNewImages(){
 		
 	});
 }
+
+
+setTimeout(function(){
+				
+	setInterval(function(){
+
+		if(newImages.length < 0){
+			for (var i = newImages.length - 1; i >= 0; i--) {
+				Things[i]
+				io.sockets.emit('photo', { img_url: newImages[0].img_url, full_name: newImages[0].full_name, likes: newImages[0].likes });
+	    	
+			};
+		}
+
+	},2000);
+
+},5000);			
 
 server.listen(3001);
