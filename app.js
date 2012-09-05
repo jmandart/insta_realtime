@@ -28,7 +28,6 @@ app.use("/css", express.static(__dirname + '/css'));
 
 var newImages = [];
 
-
 app.get('/index', function(req, res){
 
 	var images = Instagram.tags.recent({ name: 'jayistesting',
@@ -72,7 +71,7 @@ app.post('/callback', function(req, res){
 	        var POST = qs.parse(body);
 	        // use POST
 	        console.log('POST', POST);
-	        getNewImages();
+	        //getNewImages();
 	    });
 
 	    req.on('close', function () {
