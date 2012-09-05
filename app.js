@@ -64,7 +64,9 @@ app.get('/callback', function(req, res){
 
 
 app.post('/callback', function(request, response){
-	//console.log('BOOM0');
+	//
+
+console.log('BOOM0');
 	//setTimeout(function(){
 		//console.log('BOOM1');
 		//var body = '';
