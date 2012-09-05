@@ -100,7 +100,8 @@ function getNewImages(){
 	    console.log(data[0]);
 
 	    newImages.push(data[0]);
-	    sendNewImages();
+	    console.log(newImages.length);
+	    //sendNewImages();
 
 	    },
 	  	error: function(errorMessage, errorObject, caller){
