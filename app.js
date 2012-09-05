@@ -19,7 +19,7 @@ Instagram.set('redirect_uri', 'http://staging1.pirata.co.uk:3001/index');
 //io.set('log level', 1);
 
 // assign the underscore engine to .html files
-//app.engine('html', engines.underscore);
+app.engine('html', engines.underscore);
 
 // set .html as the default extension 
 app.set('view engine', 'html');
