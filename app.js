@@ -25,7 +25,7 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use("/css", express.static(__dirname + '/css'));
 
-var images = [];
+var newImages = [];
 
 
 app.get('/index', function(req, res){
@@ -35,11 +35,6 @@ app.get('/index', function(req, res){
 	      // data is a javascript object/array/null matching that shipped Instagram
 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
 
-	     // _.forEach(data, function(el){
-	     // 	images.push(el);
-	     // });
-
-	      	
 	    res.render('index', {
 			title: 'REAL TIME',
 			data: data
@@ -54,35 +49,12 @@ app.get('/index', function(req, res){
 	});
 });
 
-function sendNewImage(image) {
-	
-}
-
-// socket.emit('news', { hello: 'world' });
-//   socket.on('my other event', function (data) {
-//     console.log(data);
-//   });
-
-
-
 
 app.get('/callback', function(req, res){
 
 	var handshake =  Instagram.subscriptions.handshake(req, res);
 	console.log('handshake', handshake);
-
-	// res.render('callback', {
-	// 	title: 'REAL TIME - CALLBACK'
-	// });
 });
-
-
-// var q = async.queue(function (task, callback) {
-//     console.log('hello ' + task.name);
-    
-//     callback();
-// }, 1);
-
 
 
 app.post('/callback', function(req, res){
@@ -98,7 +70,6 @@ app.post('/callback', function(req, res){
         var POST = qs.parse(body);
         // use POST
         console.log('POST', POST);
-        //res.send({more: 'BOOM'});
     });
 
     req.on('close', function () {
@@ -106,18 +77,13 @@ app.post('/callback', function(req, res){
     	
     });
     res.writeHead(200);
- //    res.send('0');
-
-    // return null;
 });
 
-var indexImage = 1; 
+
 function getNewImages(){
 
 	console.log('BOOM2');
 	console.log('indexImage', indexImage);
-
-	//sendNewImage('dede');
 
 	Instagram.tags.recent({ name: 'jayistesting',
 		complete: function(data, pagination){
@@ -128,39 +94,22 @@ function getNewImages(){
 	    //io.sockets.emit('add_image', { data: image });
 	    console.log(data[0]);
 
+	    newImages.push(data[0]);
+
 	    },
 	  	error: function(errorMessage, errorObject, caller){
 	      // errorMessage is the raised error message
 	      // errorObject is either the object that caused the issue, or the nearest neighbor
 	      // caller is the method in which the error occurred
 	    } 
-		});
-
-// 	q.push({name: 'foo'+indexImage}, function (err) {
-// 		Instagram.tags.recent({ name: 'jayistesting',
-// 		complete: function(data, pagination){
-// 	      // data is a javascript object/array/null matching that shipped Instagram
-// 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
-
-// 	    sendNewImage(data[0]);
-
-// 	    },
-// 	  	error: function(errorMessage, errorObject, caller){
-// 	      // errorMessage is the raised error message
-// 	      // errorObject is either the object that caused the issue, or the nearest neighbor
-// 	      // caller is the method in which the error occurred
-// 	    } 
-// 		});
-    		
-// console.log('finished processing foo');
-// 		});
-
-	indexImage++;
+		
+	});
 }
 
-// q.drain = function() {
-//     console.log('all items have been processed');
-// }
+function sendNewImages(){
+	console.log('newImages.length', newImages.length);
+}
 
+setTimeout(sendNewImages, 3000);
 
 server.listen(3001);
