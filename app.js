@@ -71,7 +71,7 @@ app.post('/callback', function(req, res){
 	        var POST = qs.parse(body);
 	        // use POST
 	        console.log('POST', POST);
-	        //getNewImages();
+	        getNewImages();
 	    });
 
 	    req.on('close', function () {
