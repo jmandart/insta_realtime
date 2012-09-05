@@ -54,15 +54,8 @@ app.get('/index', function(req, res){
 	});
 });
 
-var mySocket;
-io.sockets.on('connection', function (socket) {
-
-	mySocket = socket
-  
-});
-
 function sendNewImage(image) {
-	mySocket.emit('add_image', { data: image });
+	
 }
 
 // socket.emit('news', { hello: 'world' });
@@ -132,6 +125,7 @@ function getNewImages(){
 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
 
 	    //sendNewImage(data[0]);
+	    io.sockets.emit('add_image', { data: image });
 	    console.log(data[0]);
 
 	    },
