@@ -33,7 +33,7 @@ app.get('/index', function(req, res){
 
 
 	  res.render('index', {
-			title: 'REAL TIME',
+			title: 'REAL TIME'
 			//data: data
 		});
 
