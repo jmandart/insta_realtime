@@ -64,63 +64,57 @@ app.get('/callback', function(req, res){
 
 
 app.post('/callback', function(request, response){
-	// console.log('BOOM0');
-	// //setTimeout(function(){
-	// 	console.log('BOOM1');
-	// 	var body = '';
+	//console.log('BOOM0');
+	//setTimeout(function(){
+		//console.log('BOOM1');
+		var body = '';
 
-	//     req.on('data', function (data) {
-	//         body += data;
-	//     });
+	    request.on('data', function (data) {
+	        body += data;
+	    });
 
-	//     req.on('end', function () {
+	    request.on('end', function () {
 
-	//         var POST = qs.parse(body);
-	//         // use POST
-	//         console.log('POST', POST);
-	//         getNewImages();
-	//     });
+	        var POST = qs.parse(body);
+	        	POST.forEach(function(notificationOjb){
+				    // Every notification object contains the id of the geography
+				    // that has been updated, and the photo can be obtained from
+				    // that geography
+				    https.get({
+				      host: 'api.instagram.com',
+				      path: '/v1/tags/' + notificationOjb.object_id + '/media/recent' +
+				      '?' + qs.stringify({client_id: process.env.instagram_client_id,count: 1}),
+				    }, function(res){
+				      var raw = "";
 
-	//     req.on('close', function () {
-	//     	//getNewImages();
+				      res.on('data', function(chunk) {
+				        raw += chunk;
+				      });
+
+
+				      // When the whole body has arrived, it has to be a valid JSON, with data,
+				      // and the first photo of the date must to have a location attribute.
+				      // If so, the photo is emitted through the websocket
+				      res.on('end', function() {
+				        var response = JSON.parse(raw);
+				        if(response['data'].length > 0 && response['data'][0]['location'] != null) {
+				          io.sockets.emit('photo', raw);
+				        } else {
+				          console.log("ERROR: %s", util.inspect(response['meta']));
+				        }
+				      });
+
+				    });
+				  });
+	        // // use POST
+	        // console.log('POST', POST);
+	        
+	    });
+
+	    request.on('close', function () {
+	    	//getNewImages();
 	    	
-	//     });
-	//     res.writeHead(200);
-	// //}, 2000);
-
-	console.log(request);
-	
-
-	qs.parse(request).body.forEach(function(notificationOjb){
-    // Every notification object contains the id of the geography
-    // that has been updated, and the photo can be obtained from
-    // that geography
-    https.get({
-      host: 'api.instagram.com',
-      path: '/v1/tags/' + notificationOjb.object_id + '/media/recent' +
-      '?' + qs.stringify({client_id: process.env.instagram_client_id,count: 1}),
-    }, function(res){
-      var raw = "";
-
-      res.on('data', function(chunk) {
-        raw += chunk;
-      });
-
-
-      // When the whole body has arrived, it has to be a valid JSON, with data,
-      // and the first photo of the date must to have a location attribute.
-      // If so, the photo is emitted through the websocket
-      res.on('end', function() {
-        var response = JSON.parse(raw);
-        if(response['data'].length > 0 && response['data'][0]['location'] != null) {
-          io.sockets.emit('photo', raw);
-        } else {
-          console.log("ERROR: %s", util.inspect(response['meta']));
-        }
-      });
-
-    });
-  });
+	    });
 
   response.writeHead(200);
     
