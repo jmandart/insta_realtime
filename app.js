@@ -114,7 +114,16 @@ function getNewImages(){
 }
 
 function sendNewImages(){
-	console.log('newImages.length', newImages.length);
+	//console.log('newImages.length', newImages.length);
+	console.log('timer is on');
+	if(newImages.length < 0){
+		console.log('newImages.length', newImages.length);
+		io.sockets.emit('add_image', { data: newImages[0] });
+		newImages.length = 0;
+		// _.forEach(newImages, function(image){
+		// 	io.sockets.emit('add_image', { data: image });
+		// });
+	}
 }
 
 setInterval(sendNewImages,3000);
