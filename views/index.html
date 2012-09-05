@@ -11,7 +11,7 @@
        <script src="/socket.io/socket.io.js"></script>
         <script>
           var socket = io.connect('http://staging1.pirata.co.uk:3001/');
-          socket.on('add_image', function (data) {
+          socket.on('photo', function (data) {
 
             console.log(data)
             // console.log(data.data)
