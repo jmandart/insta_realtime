@@ -39,6 +39,14 @@ app.get('/index', function(req, res){
 				data: data
 			});
 
+			setTimeout(function(){
+				
+				setInterval(function(){
+					io.sockets.emit('photo', { img_url: 'http://distilleryimage3.s3.amazonaws.com/1c015524f77011e1b44322000a1e8c9f_6.jpgl', full_name: 'Julien Mandart', likes: 0 });
+				},2000);
+
+			},5000);			
+
 	    },
 	  	error: function(errorMessage, errorObject, caller){
 	      // errorMessage is the raised error message
