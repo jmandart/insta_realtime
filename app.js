@@ -109,13 +109,13 @@ console.log('BOOM0');
 				  // });
 	    });
 
-	    // request.on('end', function () {
+	    request.on('end', function () {
 
-	    //     var POST = qs.parse(body);
-	    //     // use POST
-	    //     console.log('POST', POST);
+	        var POST = qs.parse(body);
+	        // use POST
+	        console.log('POST', POST);
 	        
-	    // });
+	    });
 
 	    // request.on('close', function () {
 	    // 	//getNewImages();
