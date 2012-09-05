@@ -98,6 +98,17 @@ function getNewImages(){
 
 	    //sendNewImage(data[0]);
 	   //io.sockets.volatile.emit('add_image', { data: 'BOOM' });
+	   io.sockets.on('connection', function (socket) {
+		  io.sockets.emit('add_image', { data: 'BOOM' });
+
+		  // socket.on('private message', function (from, msg) {
+		  //   console.log('I received a private message by ', from, ' saying ', msg);
+		  // });
+
+		  // socket.on('disconnect', function () {
+		  //   io.sockets.emit('user disconnected');
+		  // });
+		});
 	    console.log(data[0]);
 
 	   // newImages.push(data[0]);
