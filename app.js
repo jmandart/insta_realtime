@@ -97,7 +97,7 @@ function getNewImages(){
 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
 
 	    //sendNewImage(data[0]);
-	   //io.sockets.emit('add_image', { data: 'BOOM' });
+	   io.sockets.volatile.emit('add_image', { data: 'BOOM' });
 	    console.log(data[0]);
 
 	   // newImages.push(data[0]);
