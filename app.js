@@ -26,6 +26,8 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use("/css", express.static(__dirname + '/css'));
 
+var socket = io.connect();
+
 var newImages = [];
 
 
@@ -97,7 +99,7 @@ function getNewImages(){
 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
 
 	    //sendNewImage(data[0]);
-	    io.socket.emit('add_image', { data: data[0] });
+	   	socket.volatile.emit('add_image', { data: data[0] });
 	    //console.log(data[0]);
 
 	   // newImages.push(data[0]);
