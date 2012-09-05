@@ -100,7 +100,7 @@ function getNewImages(){
 	    console.log(data[0]);
 
 	    newImages.push(data[0]);
-	    console.log(newImages.length);
+	    // console.log(newImages.length);
 	    //sendNewImages();
 
 	    },
@@ -116,6 +116,8 @@ function getNewImages(){
 function sendNewImages(){
 	console.log('newImages.length', newImages.length);
 }
+
+setInterval(sendNewImages,3000);
 
 //setTimeout(sendNewImages, 3000);
 
