@@ -16,6 +16,7 @@ Instagram.set('redirect_uri', 'http://staging1.pirata.co.uk:3001/index');
 
 //Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'jayistesting',  });
 
+io.set('log level', 1);
 
 // assign the underscore engine to .html files
 app.engine('html', engines.underscore);
@@ -114,8 +115,10 @@ function getNewImages(){
 }
 
 function sendNewImages(){
-	//console.log('newImages.length', newImages.length);
-	console.log('timer is on');
+	
+	console.log('timer is on --------');
+	console.log('newImages.length', newImages.length);
+	console.log('--------');
 	if(newImages.length < 0){
 		console.log('newImages.length', newImages.length);
 		io.sockets.emit('add_image', { data: newImages[0] });
