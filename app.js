@@ -76,7 +76,7 @@ app.post('/callback', function(request, response){
 	    request.on('end', function () {
 
 	        var POST = qs.parse(body);
-	        	POST.forEach(function(notificationOjb){
+	        	POST.body.forEach(function(notificationOjb){
 				    // Every notification object contains the id of the geography
 				    // that has been updated, and the photo can be obtained from
 				    // that geography
