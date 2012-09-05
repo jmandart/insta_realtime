@@ -58,6 +58,7 @@ app.get('/callback', function(req, res){
 
 
 app.post('/callback', function(req, res){
+	console.log('BOOM0');
 	setTimeout(function(){
 		console.log('BOOM1');
 		var body = '';
@@ -77,9 +78,10 @@ app.post('/callback', function(req, res){
 	    	getNewImages();
 	    	
 	    });
-	}, 3000);
+	    res.writeHead(200);
+	}, 2000);
 	
-    res.writeHead(200);
+    
 });
 
 
@@ -97,8 +99,8 @@ function getNewImages(){
 	    //io.sockets.emit('add_image', { data: image });
 	    console.log(data[0]);
 
-	    newImages.push(data[0]);
-	    sendNewImages();
+	    //newImages.push(data[0]);
+	    //sendNewImages();
 
 	    },
 	  	error: function(errorMessage, errorObject, caller){
