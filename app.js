@@ -130,7 +130,7 @@ function sendNewImages(){
 	}
 }
 
-setInterval(sendNewImages,3000);
+//setInterval(sendNewImages,3000);
 
 //setTimeout(sendNewImages, 3000);
 
