@@ -7,7 +7,6 @@ var express = require('express'),
 	qs = require('querystring'),
 	async = require('async'),
 	util = require('util'),
-	querystring = require('querystring'),
 	_ = require('underscore');
 
 //Set Instagram
@@ -88,23 +87,25 @@ app.post('/callback', function(request, response){
 	//     });
 	//     res.writeHead(200);
 	// //}, 2000);
+
+	console.log(request);
 	
 
-	request.body.forEach(function(notificationOjb){
+	qs.parse(request).body.forEach(function(notificationOjb){
     // Every notification object contains the id of the geography
     // that has been updated, and the photo can be obtained from
     // that geography
     https.get({
       host: 'api.instagram.com',
       path: '/v1/tags/' + notificationOjb.object_id + '/media/recent' +
-      '?' + querystring.stringify({client_id: process.env.instagram_client_id,count: 1}),
+      '?' + qs.stringify({client_id: process.env.instagram_client_id,count: 1}),
     }, function(res){
       var raw = "";
 
       res.on('data', function(chunk) {
         raw += chunk;
       });
-      
+
 
       // When the whole body has arrived, it has to be a valid JSON, with data,
       // and the first photo of the date must to have a location attribute.
