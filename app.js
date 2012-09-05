@@ -30,7 +30,7 @@ var newImages = [];
 
 app.get('/index', function(req, res){
 
-	var images = Instagram.tags.recent({ name: 'jayistesting',
+	Instagram.tags.recent({ name: 'jayistesting',
 		complete: function(data, pagination){
 	      // data is a javascript object/array/null matching that shipped Instagram
 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
