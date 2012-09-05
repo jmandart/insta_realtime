@@ -90,8 +90,13 @@ function getNewImages(){
 	    // when available (mostly /recent), pagination is a javascript object with the pagination information
 
 	    	//sendNewImage(data[0]);
-	   		io.sockets.emit('photo', { data: data[0] });
-	    	console.log(data[0]);
+	   		//io.sockets.emit('photo', { img_url: data[0].images.low_resolution.url });
+	    	//console.log(data[0]);
+
+	    	console.log('data[0].images.low_resolution.url', data[0].images.low_resolution.url);
+	    	console.log('data[0].images.low_resolution.url', data[0].user.full_name);
+	    	console.log('data[0].images.low_resolution.url', data[0].likes.count);
+
 
 	    },
 	  	error: function(errorMessage, errorObject, caller){
