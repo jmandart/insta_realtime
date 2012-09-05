@@ -116,18 +116,18 @@ function getNewImages(){
 
 function sendNewImages(){
 	
-	// console.log('timer is on --------');
-	 console.log('newImages.length1', newImages.length);
-	// console.log('--------');
-	if(newImages.length > 0){
-		console.log('newImages.length2', newImages.length);
-		console.log('sendNewImages', newImages[0]);
-		//io.sockets.emit('add_image', { data: '' });
-		newImages.length = 0;
-		// _.forEach(newImages, function(image){
-		// 	io.sockets.emit('add_image', { data: image });
-		// });
-	}
+	// // console.log('timer is on --------');
+	//  console.log('newImages.length1', newImages.length);
+	// // console.log('--------');
+	// if(newImages.length > 0){
+	// 	console.log('newImages.length2', newImages.length);
+	// 	console.log('sendNewImages', newImages[0]);
+	// 	//io.sockets.emit('add_image', { data: '' });
+	// 	newImages.length = 0;
+	// 	// _.forEach(newImages, function(image){
+	// 	// 	io.sockets.emit('add_image', { data: image });
+	// 	// });
+	// }
 }
 
 //setInterval(sendNewImages,3000);
