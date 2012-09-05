@@ -83,14 +83,17 @@ app.get('/callback', function(req, res){
 	// });
 });
 
+
 var q = async.queue(function (task, callback) {
     console.log('hello ' + task.name);
     
     callback();
 }, 1);
 
+
+
 app.post('/callback', function(req, res){
-	console.log('BOOM');
+	console.log('BOOM1');
 	var body = '';
 
     req.on('data', function (data) {
@@ -118,24 +121,27 @@ app.post('/callback', function(req, res){
 var indexImage = 1; 
 function getNewImages(){
 
-	q.push({name: 'foo'+indexImage}, function (err) {
-		Instagram.tags.recent({ name: 'jayistesting',
-		complete: function(data, pagination){
-	      // data is a javascript object/array/null matching that shipped Instagram
-	      // when available (mostly /recent), pagination is a javascript object with the pagination information
+	console.log('BOOM2');
+	console.log('indexImage', indexImage);
 
-	    sendNewImage(data[0]);
+// 	q.push({name: 'foo'+indexImage}, function (err) {
+// 		Instagram.tags.recent({ name: 'jayistesting',
+// 		complete: function(data, pagination){
+// 	      // data is a javascript object/array/null matching that shipped Instagram
+// 	      // when available (mostly /recent), pagination is a javascript object with the pagination information
 
-	    },
-	  	error: function(errorMessage, errorObject, caller){
-	      // errorMessage is the raised error message
-	      // errorObject is either the object that caused the issue, or the nearest neighbor
-	      // caller is the method in which the error occurred
-	    } 
-		});
+// 	    sendNewImage(data[0]);
+
+// 	    },
+// 	  	error: function(errorMessage, errorObject, caller){
+// 	      // errorMessage is the raised error message
+// 	      // errorObject is either the object that caused the issue, or the nearest neighbor
+// 	      // caller is the method in which the error occurred
+// 	    } 
+// 		});
     		
-console.log('finished processing foo');
-		});
+// console.log('finished processing foo');
+// 		});
 
 	indexImage++;
 }
