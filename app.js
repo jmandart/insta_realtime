@@ -104,6 +104,7 @@ app.post('/callback', function(request, response){
       res.on('data', function(chunk) {
         raw += chunk;
       });
+      
 
       // When the whole body has arrived, it has to be a valid JSON, with data,
       // and the first photo of the date must to have a location attribute.
