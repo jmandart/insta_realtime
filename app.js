@@ -58,24 +58,27 @@ app.get('/callback', function(req, res){
 
 
 app.post('/callback', function(req, res){
-	console.log('BOOM1');
-	var body = '';
+	setTimeout(function(){
+		console.log('BOOM1');
+		var body = '';
 
-    req.on('data', function (data) {
-        body += data;
-    });
+	    req.on('data', function (data) {
+	        body += data;
+	    });
 
-    req.on('end', function () {
+	    req.on('end', function () {
 
-        var POST = qs.parse(body);
-        // use POST
-        console.log('POST', POST);
-    });
+	        var POST = qs.parse(body);
+	        // use POST
+	        console.log('POST', POST);
+	    });
 
-    req.on('close', function () {
-    	getNewImages();
-    	
-    });
+	    req.on('close', function () {
+	    	getNewImages();
+	    	
+	    });
+	}, 3000);
+	
     res.writeHead(200);
 });
 
