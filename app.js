@@ -57,9 +57,7 @@ app.get('/callback', function(req, res){
 
 
 app.post('/callback', function(req, res){
-	console.log('BOOM0');
-	//setTimeout(function(){
-		console.log('BOOM1');
+
 		var body = '';
 
 	    req.on('data', function (data) {
@@ -79,29 +77,26 @@ app.post('/callback', function(req, res){
 	    	
 	    });
 	    res.writeHead(200);
-	//}, 2000);
-	
-    
 });
 
 
 function getNewImages(){
 
 	console.log('BOOM2');
-	//console.log('indexImage', indexImage);
 
 	Instagram.tags.recent({ name: 'jayistesting',
 		complete: function(data, pagination){
-	      // data is a javascript object/array/null matching that shipped Instagram
-	      // when available (mostly /recent), pagination is a javascript object with the pagination information
+	    // data is a javascript object/array/null matching that shipped Instagram
+	    // when available (mostly /recent), pagination is a javascript object with the pagination information
 
-	    //sendNewImage(data[0]);
-	   //io.sockets.emit('add_image', { data: 'BOOM' });
-	    console.log(data[0]);
-
-	   // newImages.push(data[0]);
-	    //console.log(newImages.length);
-	    //sendNewImages();
+	    	//sendNewImage(data[0]);
+	   		//io.sockets.emit('add_image', { data: data[0] });
+	   		 var photos = setInterval(function () {
+			    getBieberTweet(function (data[0]) {
+			      io.sockets.volatile.emit('add_image', { data: data[0] });
+			    });
+			  }, 100);
+	    	console.log(data[0]);
 
 	    },
 	  	error: function(errorMessage, errorObject, caller){
@@ -112,25 +107,5 @@ function getNewImages(){
 		
 	});
 }
-
-// function sendNewImages(){
-	
-// 	// // console.log('timer is on --------');
-// 	//  console.log('newImages.length1', newImages.length);
-// 	// // console.log('--------');
-// 	// if(newImages.length > 0){
-// 	// 	console.log('newImages.length2', newImages.length);
-// 	// 	console.log('sendNewImages', newImages[0]);
-// 	// 	//io.sockets.emit('add_image', { data: '' });
-// 	// 	newImages.length = 0;
-// 	// 	// _.forEach(newImages, function(image){
-// 	// 	// 	io.sockets.emit('add_image', { data: image });
-// 	// 	// });
-// 	// }
-// }
-
-//setInterval(sendNewImages,3000);
-
-//setTimeout(sendNewImages, 3000);
 
 server.listen(3001);
