@@ -116,7 +116,7 @@ setTimeout(function(){
 				
 	setInterval(function(){
 
-		if(newImages.length < 0){
+		if(newImages.length > 0){
 			for (var i = newImages.length - 1; i >= 0; i--) {
 				Things[i]
 				io.sockets.emit('photo', { img_url: newImages[0].img_url, full_name: newImages[0].full_name, likes: newImages[0].likes });
