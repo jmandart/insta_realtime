@@ -101,7 +101,7 @@ function getNewImages(){
 	    console.log(data[0]);
 
 	    newImages.push(data[0]);
-	    // console.log(newImages.length);
+	    console.log(newImages.length);
 	    //sendNewImages();
 
 	    },
@@ -116,9 +116,9 @@ function getNewImages(){
 
 function sendNewImages(){
 	
-	console.log('timer is on --------');
-	console.log('newImages.length', newImages.length);
-	console.log('--------');
+	// console.log('timer is on --------');
+	// console.log('newImages.length', newImages.length);
+	// console.log('--------');
 	if(newImages.length > 0){
 		console.log('newImages.length', newImages.length);
 		//io.sockets.emit('add_image', { data: newImages[0] });
