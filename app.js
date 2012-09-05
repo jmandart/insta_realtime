@@ -4,7 +4,7 @@ var express = require('express'),
 	engines = require('consolidate'),
 	Instagram = require('instagram-node-lib'),
 	qs = require('querystring'),
-	io = require('socket.io').listen(server),
+	//io = require('socket.io').listen(server),
 	async = require('async'),
 	_ = require('underscore');
 
