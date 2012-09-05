@@ -90,12 +90,7 @@ function getNewImages(){
 	    // when available (mostly /recent), pagination is a javascript object with the pagination information
 
 	    	//sendNewImage(data[0]);
-	   		//io.sockets.emit('add_image', { data: data[0] });
-	   		 var photos = setInterval(function () {
-			    getBieberTweet(function (data[0]) {
-			      io.sockets.volatile.emit('add_image', { data: data[0] });
-			    });
-			  }, 100);
+	   		io.sockets.emit('add_image', { data: data[0] });
 	    	console.log(data[0]);
 
 	    },
