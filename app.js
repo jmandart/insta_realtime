@@ -126,20 +126,21 @@ function getNewImages(){
 
 	//sendNewImage('dede');
 
-	// Instagram.tags.recent({ name: 'jayistesting',
-	// 	complete: function(data, pagination){
-	//       // data is a javascript object/array/null matching that shipped Instagram
-	//       // when available (mostly /recent), pagination is a javascript object with the pagination information
+	Instagram.tags.recent({ name: 'jayistesting',
+		complete: function(data, pagination){
+	      // data is a javascript object/array/null matching that shipped Instagram
+	      // when available (mostly /recent), pagination is a javascript object with the pagination information
 
-	//     sendNewImage(data[0]);
+	    //sendNewImage(data[0]);
+	    console.log(data[0]);
 
-	//     },
-	//   	error: function(errorMessage, errorObject, caller){
-	//       // errorMessage is the raised error message
-	//       // errorObject is either the object that caused the issue, or the nearest neighbor
-	//       // caller is the method in which the error occurred
-	//     } 
-	// 	});
+	    },
+	  	error: function(errorMessage, errorObject, caller){
+	      // errorMessage is the raised error message
+	      // errorObject is either the object that caused the issue, or the nearest neighbor
+	      // caller is the method in which the error occurred
+	    } 
+		});
 
 // 	q.push({name: 'foo'+indexImage}, function (err) {
 // 		Instagram.tags.recent({ name: 'jayistesting',
