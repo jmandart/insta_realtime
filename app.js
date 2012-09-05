@@ -19,7 +19,7 @@ Instagram.set('redirect_uri', 'http://staging1.pirata.co.uk:3001/index');
 //io.set('log level', 1);
 
 // assign the underscore engine to .html files
-app.engine('html', engines.underscore);
+//app.engine('html', engines.underscore);
 
 // set .html as the default extension 
 app.set('view engine', 'html');
@@ -98,7 +98,7 @@ function getNewImages(){
 
 	    //sendNewImage(data[0]);
 	    //io.sockets.emit('add_image', { data: image });
-	    console.log(data[0]);
+	    //console.log(data[0]);
 
 	    newImages.push(data[0]);
 	    console.log(newImages.length);
@@ -121,7 +121,8 @@ function sendNewImages(){
 	// console.log('--------');
 	if(newImages.length > 0){
 		console.log('newImages.length2', newImages.length);
-		io.sockets.emit('add_image', { data: '' });
+		console.log('sendNewImages', newImages[0]);
+		//io.sockets.emit('add_image', { data: '' });
 		newImages.length = 0;
 		// _.forEach(newImages, function(image){
 		// 	io.sockets.emit('add_image', { data: image });
