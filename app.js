@@ -67,16 +67,11 @@ app.post('/callback', function(request, response){
 	//console.log('BOOM0');
 	//setTimeout(function(){
 		//console.log('BOOM1');
-		var body = '';
+		//var body = '';
 
 	    request.on('data', function (data) {
-	        body += data;
-	    });
-
-	    request.on('end', function () {
-
-	        var POST = qs.parse(body);
-	        	POST.body.forEach(function(notificationOjb){
+	        //body += data;
+	        data.body.forEach(function(notificationOjb){
 				    // Every notification object contains the id of the geography
 				    // that has been updated, and the photo can be obtained from
 				    // that geography
@@ -106,15 +101,20 @@ app.post('/callback', function(request, response){
 
 				    });
 				  });
-	        // // use POST
-	        // console.log('POST', POST);
-	        
 	    });
 
-	    request.on('close', function () {
-	    	//getNewImages();
+	    // request.on('end', function () {
+
+	    //     var POST = qs.parse(body);
+	    //     // use POST
+	    //     console.log('POST', POST);
+	        
+	    // });
+
+	    // request.on('close', function () {
+	    // 	//getNewImages();
 	    	
-	    });
+	    // });
 
   response.writeHead(200);
     
