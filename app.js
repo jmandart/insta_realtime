@@ -122,6 +122,8 @@ setTimeout(function(){
 				io.sockets.emit('photo', { img_url: image.img_url, full_name: image.full_name, likes: image.likes });
 
 			});
+
+			newImages.length = 0;
 	    	
 		}
 
