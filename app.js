@@ -1,10 +1,10 @@
 var express = require('express'),
 	app = express(),
 	server = require('http').createServer(app),
+	io = require('socket.io').listen(server),
 	engines = require('consolidate'),
 	Instagram = require('instagram-node-lib'),
 	qs = require('querystring'),
-	io = require('socket.io').listen(server),
 	async = require('async'),
 	_ = require('underscore');
 
