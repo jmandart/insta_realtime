@@ -95,6 +95,7 @@ function getNewImages(){
 	    console.log(data[0]);
 
 	    newImages.push(data[0]);
+	    sendNewImages();
 
 	    },
 	  	error: function(errorMessage, errorObject, caller){
@@ -110,6 +111,6 @@ function sendNewImages(){
 	console.log('newImages.length', newImages.length);
 }
 
-setTimeout(sendNewImages, 3000);
+//setTimeout(sendNewImages, 3000);
 
 server.listen(3001);
