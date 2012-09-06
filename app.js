@@ -109,6 +109,8 @@ function getNewImages(){
 	    } 
 		
 	});
+
+	return false;
 }
 
 
