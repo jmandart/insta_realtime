@@ -127,7 +127,7 @@ setTimeout(function(){
 
 			console.log('newImages 2', newImages);
 
-			io.sockets.emit('photo', { img_url: newImages[0].img_url, full_name: newImages[0].full_name, likes: newImages[0].likes });
+			//io.sockets.emit('photo', { img_url: newImages[0].img_url, full_name: newImages[0].full_name, likes: newImages[0].likes });
 
 			newImages.length = 0;
 	    	
