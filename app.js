@@ -95,7 +95,7 @@ function getNewImages(){
 
 	    	var image = { img_url: data[0].images.low_resolution.url, full_name: data[0].user.full_name, likes: data[0].likes.count };
 	    	newImages.push(image);
-
+	    	console.log('newImages 1', newImages);
 	    	// console.log('data[0].images.low_resolution.url', data[0].images.low_resolution.url);
 	    	// console.log('data[0].images.low_resolution.url', data[0].user.full_name);
 	    	// console.log('data[0].images.low_resolution.url', data[0].likes.count);
@@ -117,11 +117,15 @@ setTimeout(function(){
 	setInterval(function(){
 
 		if(newImages.length > 0){
-			_.forEach(newImages, function(image){
+			// _.forEach(newImages, function(image){
 
-				io.sockets.emit('photo', { img_url: image.img_url, full_name: image.full_name, likes: image.likes });
+			// 	io.sockets.emit('photo', { img_url: image.img_url, full_name: image.full_name, likes: image.likes });
 
-			});
+			// });
+
+			console.log('newImages 2', newImages);
+
+			io.sockets.emit('photo', { img_url: newImages[0].img_url, full_name: newImages[0].full_name, likes: newImages[0].likes });
 
 			newImages.length = 0;
 	    	
