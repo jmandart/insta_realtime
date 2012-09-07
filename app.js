@@ -70,7 +70,7 @@ app.post('/callback', function(req, res){
 	        // use POST
 	        console.log('POST.object_id', body);
 	        console.log('POST.object_id', body[0]);
-	        console.log('get(object_id)', body.get('object_id'));
+	        console.log('get(object_id)', POST.get('object_id'));
 
 	 //        Instagram.tags.recent({ name: POST.object_id,
 		// 		complete: function(data, pagination){
