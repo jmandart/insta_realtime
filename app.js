@@ -68,33 +68,33 @@ app.post('/callback', function(req, res){
 
 	        var POST = qs.parse(body);
 	        // use POST
-	        console.log('POST.object_id', POST.object_id);
+	        console.log('POST.object_id', POST[0]);
 
-	        Instagram.tags.recent({ name: POST.object_id,
-				complete: function(data, pagination){
-			    // data is a javascript object/array/null matching that shipped Instagram
-			    // when available (mostly /recent), pagination is a javascript object with the pagination information
+	 //        Instagram.tags.recent({ name: POST.object_id,
+		// 		complete: function(data, pagination){
+		// 	    // data is a javascript object/array/null matching that shipped Instagram
+		// 	    // when available (mostly /recent), pagination is a javascript object with the pagination information
 
-			    	//sendNewImage(data[0]);
-			   		//io.sockets.emit('photo', { img_url: data[0].images.low_resolution.url, full_name: data[0].user.full_name, likes: data[0].likes.count });
-			    	//console.log(data[0]);
+		// 	    	//sendNewImage(data[0]);
+		// 	   		//io.sockets.emit('photo', { img_url: data[0].images.low_resolution.url, full_name: data[0].user.full_name, likes: data[0].likes.count });
+		// 	    	//console.log(data[0]);
 
-			    	var image = { img_url: data[0].images.low_resolution.url, full_name: data[0].user.full_name, likes: data[0].likes.count };
-			    	newImages.push(image);
-			    	console.log('newImages 1', newImages);
-			    	// console.log('data[0].images.low_resolution.url', data[0].images.low_resolution.url);
-			    	// console.log('data[0].images.low_resolution.url', data[0].user.full_name);
-			    	// console.log('data[0].images.low_resolution.url', data[0].likes.count);
+		// 	    	var image = { img_url: data[0].images.low_resolution.url, full_name: data[0].user.full_name, likes: data[0].likes.count };
+		// 	    	newImages.push(image);
+		// 	    	console.log('newImages 1', newImages);
+		// 	    	// console.log('data[0].images.low_resolution.url', data[0].images.low_resolution.url);
+		// 	    	// console.log('data[0].images.low_resolution.url', data[0].user.full_name);
+		// 	    	// console.log('data[0].images.low_resolution.url', data[0].likes.count);
 
 
-			    },
-			  	error: function(errorMessage, errorObject, caller){
-			      // errorMessage is the raised error message
-			      // errorObject is either the object that caused the issue, or the nearest neighbor
-			      // caller is the method in which the error occurred
-			    } 
+		// 	    },
+		// 	  	error: function(errorMessage, errorObject, caller){
+		// 	      // errorMessage is the raised error message
+		// 	      // errorObject is either the object that caused the issue, or the nearest neighbor
+		// 	      // caller is the method in which the error occurred
+		// 	    } 
 		
-		});
+		// });
 	       
 	    });
 
@@ -154,7 +154,7 @@ setTimeout(function(){
 			console.log('newImages 2', newImages);
 
 			io.sockets.emit('photo', { img_url: newImages[0].img_url, full_name: newImages[0].full_name, likes: newImages[0].likes });
-			io.server.close();
+			//io.server.close();
 
 			newImages.length = 0;
 	    	
