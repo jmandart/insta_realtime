@@ -68,8 +68,9 @@ app.post('/callback', function(req, res){
 
 	        var POST = qs.parse(body);
 	        // use POST
-	        console.log('POST.object_id', data);
+	        //console.log('POST.object_id', data);
 	        console.log('POST.object_id', body['object_id']);
+
 	        // console.log('get(object_id)', POST.get('object_id'));
 
 	 //        Instagram.tags.recent({ name: POST.object_id,
