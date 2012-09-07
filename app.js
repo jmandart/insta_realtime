@@ -13,6 +13,7 @@ Instagram.set('client_id', 'a1cf6651ba4743498540dbd8c4027f9e');
 Instagram.set('client_secret', '266f4960d8234179985a4554798e2ea1');
 Instagram.set('callback_url', 'http://staging1.pirata.co.uk:3001/callback');
 Instagram.set('redirect_uri', 'http://staging1.pirata.co.uk:3001/index');
+Instagram.set('maxSockets', 10);
 
 //Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'jayistesting',  });
 
@@ -68,10 +69,7 @@ app.post('/callback', function(req, res){
 
 	        var POST = qs.parse(body);
 	        // use POST
-	        
-	        _.forEach(POST, function(el){
-	        	console.log('el', el);
-	        });
+
 	       // console.log('POST.object_id', POST['object_id']);
 
 	        // console.log('get(object_id)', POST.get('object_id'));
