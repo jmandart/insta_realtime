@@ -58,9 +58,6 @@ app.get('/callback', function(req, res){
 
 app.post('/callback', function(req, res){
 
-
-console.log('req.query.object_id', req.query['object_id']);
-
 		var body = '';
 
 	    req.on('data', function (data) {
@@ -71,7 +68,10 @@ console.log('req.query.object_id', req.query['object_id']);
 
 	        var POST = qs.parse(body);
 	        // use POST
-	        //console.log('POST.object_id', data);
+	        
+	        _.forEach(POST, function(el){
+	        	console.log('el', el);
+	        });
 	       // console.log('POST.object_id', POST['object_id']);
 
 	        // console.log('get(object_id)', POST.get('object_id'));
